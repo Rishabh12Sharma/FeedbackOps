@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: feedback-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: feedback-app
+  template:
+    metadata:
+      labels:
+        app: feedback-app
+    spec:
+      containers:
+      - name: feedback-app
+        image: 423147398002.dkr.ecr.us-east-1.amazonaws.com/feedback-app:latest
+        ports:
+        - containerPort: 80
